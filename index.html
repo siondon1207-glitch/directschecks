@@ -1,23 +1,693 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "현대자동차 더 올 뉴 그랜저 GN7",
+      "image": "https://images.pexels.com/photos/4192113/pexels-photo-4192113.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "description": "2026년형 현대자동차 더 올 뉴 그랜저 GN7 트림별 공식 가격표 및 모의 견적 비교 분석. 가솔린, 하이브리드, LPi 모델의 세부 옵션과 할인 혜택 수록.",
+      "brand": {
+        "@type": "Brand",
+        "name": "현대자동차"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "KRW",
+        "lowPrice": "38500000",
+        "highPrice": "56000000",
+        "offerCount": "12",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "2.5 가솔린 프리미엄",
+            "price": "38500000",
+            "priceCurrency": "KRW",
+            "url": "https://grandeur.reliabledone.com"
+          },
+          {
+            "@type": "Offer",
+            "name": "1.6 하이브리드 프리미엄",
+            "price": "44000000",
+            "priceCurrency": "KRW",
+            "url": "https://grandeur.reliabledone.com"
+          }
+        ]
+      }
+    }
+    </script>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --primary-light: #eff6ff;
+            --secondary-color: #3b82f6;
+            --accent-color: #f59e0b;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --bg-light: #f8fafc;
+            --border-color: #e2e8f0;
+            --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: "Pretendard", "Noto Sans KR", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.85;
+            letter-spacing: -0.02em;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+            color: #ffffff;
+            padding: 3.5rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.3;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-top: 1rem;
+            color: #bfdbfe;
+        }
+
+        nav {
+            margin-top: 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.6rem 1.2rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            transition: all 0.25s ease;
+        }
+
+        nav a:hover {
+            background-color: #ffffff;
+            color: var(--primary-color);
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            background-color: #ffffff;
+            box-shadow: var(--card-shadow);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 1.8rem;
+            font-size: 2rem;
+            font-weight: 800;
+            border-bottom: 3px solid var(--primary-light);
+            padding-bottom: 0.75rem;
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.45rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            padding-left: 0.8rem;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        p {
+            margin-bottom: 1.6rem;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .highlight-box {
+            background-color: var(--primary-light);
+            border-left: 5px solid var(--primary-color);
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1.1rem;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: #fafbfd;
+        }
+
+        .comparison-table td {
+            text-align: center;
+        }
+
+        .comparison-table td.left-align {
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .keyword-tags {
+            margin: 1.5rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .keyword-tags a {
+            background-color: var(--primary-light);
+            color: var(--secondary-color);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .keyword-tags a:hover {
+            background-color: var(--secondary-color);
+            color: #ffffff;
+        }
+
+        .input-form {
+            background-color: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-top: 2rem;
+        }
+
+        .input-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .input-form input[type="text"],
+        .input-form input[type="tel"],
+        .input-form select,
+        .input-form textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            margin-bottom: 1.25rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.95rem;
+            background-color: #ffffff;
+            color: var(--text-dark);
+            transition: border-color 0.2s;
+        }
+
+        .input-form input:focus,
+        .input-form select:focus,
+        .input-form textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-checkbox input {
+            width: 18px;
+            height: 18px;
+            margin: 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            font-weight: 700;
+            padding: 1.1rem 2.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1.05rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: #d97706;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(217, 119, 6, 0.4);
+        }
+
+        dl dt {
+            font-weight: 700;
+            margin-top: 1.25rem;
+            padding: 1.2rem;
+            background-color: var(--primary-light);
+            border-radius: 8px;
+            cursor: pointer;
+            color: var(--primary-color);
+            position: relative;
+            transition: background-color 0.2s;
+            font-size: 1.05rem;
+        }
+
+        dl dt::after {
+            content: "보기";
+            position: absolute;
+            right: 1.2rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+
+        dl dd {
+            margin: 0;
+            padding: 1.2rem 1.5rem;
+            background-color: #ffffff;
+            border-left: 3px solid var(--secondary-color);
+            border-bottom: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            display: none;
+            line-height: 1.8;
+        }
+
+        dl dt.active + dd {
+            display: block;
+        }
+
+        .visual-chart {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .chart-bar-container {
+            margin-bottom: 1.5rem;
+        }
+
+        .chart-label {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+        }
+
+        .chart-bar-wrapper {
+            background-color: #e2e8f0;
+            border-radius: 8px;
+            height: 24px;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .chart-bar {
+            background-color: var(--secondary-color);
+            height: 100%;
+            border-radius: 8px;
+            transition: width 1s ease-in-out;
+        }
+
+        .chart-bar.premium { width: 68%; background-color: #93c5fd; }
+        .chart-bar.exclusive { width: 78%; background-color: #60a5fa; }
+        .chart-bar.calligraphy { width: 92%; background-color: var(--secondary-color); }
+        .chart-bar.blackink { width: 100%; background-color: var(--primary-color); }
+
+        .reference-section {
+            background-color: var(--primary-light);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        .reference-section a {
+            color: var(--primary-color);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .reference-section a:hover {
+            text-decoration: underline;
+        }
+
+        .image-container {
+            margin: 2.5rem 0;
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .image-source {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            background-color: #ffffff;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>더 올 뉴 그랜저gn7 가격 상세 분석 가이드</h1>
+        <p>2026년식 트림별 공식 출시가와 모의 견적 산출 및 최적의 금융 옵션 비교</p>
+        <nav>
+            <ul>
+                <li><a href="#가격표">공식 가격표</a></li>
+                <li><a href="#옵션비교">트림 및 옵션 비교</a></li>
+                <li><a href="#구매비용">실구매 세금 계산</a></li>
+                <li><a href="#금융정보">다이렉트 구매 팁</a></li>
+                <li><a href="#FAQ">자주 묻는 질문</a></li>
+                <li><a href="#상담신청">실시간 무료 상담</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <main>
-      <h1>Home page</h1>
+        <section id="소개">
+            <h2>국산 세단의 기준, 더 올 뉴 그랜저 GN7을 말하다</h2>
+            <p>대한민국 준대형 세단 시장을 선도하는 현대자동차의 대표 <strong>브랜드</strong> 가치인 더 올 뉴 그랜저gn7 모델은 고급스러운 디자인과 혁신적인 기술력으로 지속적인 인기를 끌고 있습니다. 많은 소비자가 차량 구매를 결정할 때 가장 먼저 확인하는 요소는 단연 <strong>금액</strong>과 실질적인 인도 <strong>가격</strong>입니다. 특히 <strong>2026년</strong>에 접어들며 연식 변경을 거친 그랜저 GN7 모델은 최신 인포테인먼트 시스템과 향상된 반자율 주행 기술을 탑재하여 상품성을 대폭 강화했습니다.</p>
+            <p>신차를 구매할 때는 단순히 명시된 차량 가격표만 보아서는 안 되며, 개별소비세와 교육세, 그리고 차량 등록 시 발생하는 취등록세 등의 전체적인 <strong>비용</strong>을 종합적으로 <strong>계산</strong>해야 합니다. 본 가이드에서는 2.5 가솔린, 3.5 가솔린, 1.6 터보 하이브리드, 3.5 LPi 등 각 엔진 <strong>종류</strong>별 가격 구조를 파악하고, 불필요한 지출을 줄이며 가장 합리적인 옵션을 구성하는 <strong>방법</strong>을 상세히 제시합니다.</p>
+
+            <div class="keyword-tags">
+                <a href="#가격표">더 올 뉴 그랜저gn7 가격표</a>
+                <a href="#옵션비교">그랜저 하이브리드 추천</a>
+                <a href="#구매비용">그랜저 모의 견적 계산</a>
+                <a href="#금융정보">신차 구매 다이렉트 할인</a>
+                <a href="#FAQ">그랜저 단점 장단점 비교</a>
+                <a href="#상담신청">카마스터 전문 상담</a>
+            </div>
+        </section>
+
+        <section id="가격표">
+            <h2>2026년형 더 올 뉴 그랜저 GN7 트림별 공식 가격표</h2>
+            <p>더 올 뉴 그랜저 GN7 모델은 패키징 구성에 따라 프리미엄, 익스클루시브, 캘리그래피, 그리고 최상위 디자인 차별화 모델인 블랙잉크 트림으로 나뉩니다. 각 트림별 선택 가능한 엔진 라인업에 따라 최종 <strong>요금</strong> 성격의 차량 출고가가 결정됩니다. 다음은 2026년 기준 현대자동차 공식 데이터를 기반으로 정리한 트림별 기본 차량가입니다.</p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>엔진 라인업</th>
+                        <th>프리미엄 트림</th>
+                        <th>익스클루시브 트림</th>
+                        <th>캘리그래피 트림</th>
+                        <th>블랙잉크 트림</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="left-align">2.5 가솔린 (기본형)</td>
+                        <td>3850만 원</td>
+                        <td>4350만 원</td>
+                        <td>4800만 원</td>
+                        <td>4950만 원</td>
+                    </tr>
+                    <tr>
+                        <td class="left-align">3.5 가솔린 (고출력)</td>
+                        <td>4100만 원</td>
+                        <td>4600만 원</td>
+                        <td>5050만 원</td>
+                        <td>5200만 원</td>
+                    </tr>
+                    <tr>
+                        <td class="left-align">1.6 터보 하이브리드</td>
+                        <td>4400만 원</td>
+                        <td>4900만 원</td>
+                        <td>5350만 원</td>
+                        <td>5500만 원</td>
+                    </tr>
+                    <tr>
+                        <td class="left-align">3.5 LPi (가스 모델)</td>
+                        <td>3950만 원</td>
+                        <td>4450만 원</td>
+                        <td>추천 사양 없음</td>
+                        <td>미운영 사양</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>위 테이블에 명시된 금액은 선택 사양(옵션)이 전혀 추가되지 않은 순수 기본가입니다. 소비자가 <strong>가장</strong> 선호하는 패키지인 현대 스마트센스, 헤드업 디스플레이, 파노라마 선루프 등의 옵션을 추가하면 실질적인 결제 금액은 <strong>평균</strong> 300만 원에서 500만 원가량 상승합니다. 따라서 사전에 꼼꼼한 <strong>모의 견적</strong> 과정을 거치는 것이 바람직합니다.</p>
+        </section>
+
+        <section id="옵션비교">
+            <h2>트림별 차이점과 탑재 옵션 심층 분석</h2>
+            <p>트림 구성을 정할 때 소비자들이 가장 깊은 고민에 빠지게 됩니다. 기본 등급인 프리미엄과 중간 등급인 익스클루시브의 <strong>차이점</strong>은 안전 및 편의 사양의 기본화 여부입니다. 익스클루시브 트림부터는 운전석 에르고 모션 시트와 조수석 통풍 시트, 그리고 후진 가이드 램프를 포함한 고급 편의 사양이 풍부하게 제공되므로 패밀리카 목적의 구매자에게 <strong>추천</strong>도가 매우 높습니다.</p>
+            <p>최상위 프리미엄을 지향하는 캘리그래피 트림은 나파 가죽 시트, 리얼 우드 내장재, 그리고 BOSE 프리미엄 사운드 시스템이 기본 적용되어 고급 세단의 진수를 보여줍니다. 여기에 외장과 내장의 크롬 라인을 유광 블랙으로 마감한 블랙잉크 트림은 젊고 트렌디한 감각을 지향하는 오너들에게 <strong>제일</strong> 인기가 많습니다. 하이테크 편의 장비들의 구체적인 작동 조건과 세부 설명은 인터넷 및 제조사 가이드를 통해 세밀하게 파악할 수 있습니다.</p>
+
+            <div class="visual-chart">
+                <h3>트림별 선호 비율 및 가격 범위 시각화</h3>
+                <p>소비자들이 실제 계약 시 선택하는 트림별 비중과 추가 옵션을 포함한 예상 출고가의 대략적인 분포입니다.</p>
+                
+                <div class="chart-bar-container">
+                    <div class="chart-label">
+                        <span>프리미엄 트림 (선호도 18%)</span>
+                        <span>예상가: 3850만 원 - 4300만 원</span>
+                    </div>
+                    <div class="chart-bar-wrapper">
+                        <div class="chart-bar premium"></div>
+                    </div>
+                </div>
+
+                <div class="chart-bar-container">
+                    <div class="chart-label">
+                        <span>익스클루시브 트림 (선호도 42%)</span>
+                        <span>예상가: 4350만 원 - 4900만 원</span>
+                    </div>
+                    <div class="chart-bar-wrapper">
+                        <div class="chart-bar exclusive"></div>
+                    </div>
+                </div>
+
+                <div class="chart-bar-container">
+                    <div class="chart-label">
+                        <span>캘리그래피 트림 (선호도 30%)</span>
+                        <span>예상가: 4800만 원 - 5400만 원</span>
+                    </div>
+                    <div class="chart-bar-wrapper">
+                        <div class="chart-bar calligraphy"></div>
+                    </div>
+                </div>
+
+                <div class="chart-bar-container">
+                    <div class="chart-label">
+                        <span>블랙잉크 트림 (선호도 10%)</span>
+                        <span>예상가: 4950만 원 - 5600만 원</span>
+                    </div>
+                    <div class="chart-bar-wrapper">
+                        <div class="chart-bar blackink"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="구매비용">
+            <h2>취등록세와 실제 세금 및 숨은 유지 비용 계산기 활용 요령</h2>
+            <p>신차를 구매할 때 예산을 짤 때 범하는 흔한 실수가 차량 출고 가격만을 고려하는 것입니다. 실제 차량을 온전히 내 명의로 등록하기 위해서는 취등록세라는 세금을 국가에 납부해야 합니다. 일반 승용차의 취등록세는 차량 가액의 7%로 책정됩니다. 단, 1.6 터보 하이브리드 모델의 경우 세제 혜택 조건이 적용되어 취등록세 중 일부 금액이 감면되는 큰 <strong>장점</strong>을 누릴 수 있습니다.</p>
+            <p>또한 번호판 등록비용, 탁송 비용, 책임보험료 등 초기 구동 단계에서 예상치 못한 부대비용이 연이어 발생합니다. 이러한 복잡한 수치 계산은 모바일 환경의 다양한 자동차 <strong>계산기</strong> 관련 <strong>앱</strong> 또는 금융 <strong>어플</strong>을 다운로드하여 활용하면 수월하게 진행할 수 있습니다. 예를 들어 <strong>토스</strong> 모바일 서비스의 자동차 금융 섹션이나 제조사 공식 견적 <strong>사이트</strong>를 이용하면 클릭 몇 번으로 실제 지출될 최종 세액을 실시간으로 확인해 볼 수 있습니다.</p>
+            
+            <div class="highlight-box">
+                <p>그랜저 GN7 하이브리드 1.6 가성비 조합 시 예상 실구매 총비용 계산안</p>
+                <p>차량가: 4400만 원 (프리미엄 무옵션 기준) + 탁송료 약 30만 원 + 세제혜택 적용 취등록세 약 268만 원 = 실구매 최종 예상 금액: 약 4698만 원</p>
+            </div>
+        </section>
+
+        <section id="금융정보">
+            <h2>다이렉트 금융 및 카드 캐시백 최저가 비교로 현명하게 구매하는법</h2>
+            <p>신차 결제 시 현금 일시불 결제 외에 할부 금융 상품을 이용하는 비중이 매우 높습니다. 대리점에서 제공하는 기본 할부 요금제 계약 외에도 은행권 및 카드사에서 취급하는 <strong>다이렉트</strong> 오토론 및 카드 할부 프로그램을 철저히 <strong>비교</strong>해 볼 필요가 있습니다. 중간 유통 마진이 배제된 다이렉트 할부 상품은 금리가 비교적 <strong>싼곳</strong>이 많으며, 금리 차이에 따라 매월 상환하는 할부 원리금의 격차가 벌어집니다.</p>
+            <p>나아가 일시불 결제 비중이 높다면 카드 일시불 결제를 통한 오토캐시백 <strong>이벤트</strong>를 노려야 합니다. 결제 금액의 일정 비율을 현금으로 돌려받는 구조로, 고가의 신차 구매 시 쏠쏠한 현금성 재원이 될 수 있습니다. 이는 과거 우리가 가정에 설치하는 초고속 통신망 가입 시 대리점에서 지급받던 <strong>인터넷 가입</strong> 사은품 및 현금지원, 상품권 혜택과도 일맥상통합니다. 즉, 발품을 파는 만큼 딜러가 별도로 챙겨주는 개인 <strong>지원금</strong>이나 블랙박스, 선팅 시공과 같은 사은품 패키지 등의 추가적인 물질적 혜택을 극대화할 수 있는 셈입니다.</p>
+        </section>
+
+        <section id="커뮤니티">
+            <h2>보배드림, 디시인사이드 등 커뮤니티 오너들의 솔직한 후기</h2>
+            <p>새 차를 출고하기 전에 실제 운전자들의 리얼한 피드백을 수집하는 과정은 필수적입니다. 네이버 카페나 다음 동호회를 포함해 <strong>보배드림</strong>, <strong>디시</strong>인사이드 차갤, <strong>에펨코리아</strong> (<strong>펨코</strong>) 등의 자동차 커뮤니티에는 수많은 오너들이 업로드한 <strong>내돈내산</strong> 시승 및 장기 운행 <strong>후기</strong>가 올라와 있습니다. 실구매자들은 준대형 플래그십 특유의 부드러운 승차감과 압도적인 뒷좌석 거주성을 가장 큰 <strong>장점</strong>으로 꼽습니다.</p>
+            <p>다만 차체가 전장 5미터를 넘어가면서 발생하는 좁은 주차 공간에서의 조작 불편이나 하이브리드 특유의 냉간 시 엔진 개입 소음 등은 아쉬운 <strong>단점</strong>으로 지적되곤 합니다. 이러한 실사용자들의 후기 정보는 대리점 팸플릿이나 영업사원의 설명에서는 결코 들을 수 없는 귀중한 데이터이므로, 구매 계약서에 서명하기 전에 반드시 다각도로 검토해 보는 습관을 지녀야 합니다.</p>
+        </section>
+
+        <section id="AI비교">
+            <h2>생성형 AI 시대: 챗지피티와 제미나이를 활용한 스마트 구매 가이드</h2>
+            <p>테크놀로지가 진보한 오늘날에는 <strong>챗지피티</strong>나 <strong>제미나이</strong>와 같은 대화형 <strong>AI</strong> 엔진을 활용하여 신차 구매 프로세스를 혁신적으로 단축할 수 있습니다. 예를 들어 인공지능 프롬프트 창에 나의 한 달 운행 거리, 연간 가용 예산, 선호하는 드라이빙 감각을 입력하면 맞춤형 트림 추천 알고리즘을 가동하여 가장 합리적인 옵션 조합 결과물을 출력해 줍니다.</p>
+            <p>AI 엔진은 여러 자동차 영업 <strong>업체</strong> 및 딜러들이 공유하는 최신 세일즈 정보 동향까지 빠르게 요약하여 제공하므로 초보 구매자들에게 훌륭한 <strong>컨설팅</strong> 도구가 됩니다. 물론 구체적인 지점별 프로모션 조건이나 오토캐시백 한도율처럼 매주 변동되는 민감한 실시간 <strong>혜택</strong> 조건은 AI 분석 결과를 가이드 삼아, 신뢰할 수 있는 장기렌트 리스 <strong>전문</strong> 에이전트와의 전화를 통한 비대면 <strong>상담</strong>으로 최종 확인하는 크로스체크 방식이 권장됩니다.</p>
+        </section>
+
+        <section id="FAQ">
+            <h2>자주 묻는 질문 (FAQ)</h2>
+            <p>더 올 뉴 그랜저 GN7 가격 및 구매와 관련해 소비자들이 가장 높은 빈도로 궁금해하는 핵심 질문들을 명쾌하게 정리했습니다.</p>
+            <dl>
+                <dt tabindex="0" aria-expanded="false">Q1. 하이브리드 모델과 2.5 가솔린 모델의 실질적인 비용 차이는 얼마인가요?</dt>
+                <dd>기본 차량 가액 면에서 하이브리드 모델이 가솔린 모델보다 약 550만 원가량 높게 책정되어 있습니다. 하지만 연간 1.5만 킬로미터 이상 주행 시 절약되는 주유 비용과 취등록세 세제 감면 혜택, 공영주차장 할인 등의 혜택을 합산하면 보통 3년에서 4년 이내에 초기 구매 비용 차이를 전부 상쇄할 수 있는 것으로 평가받습니다.</dd>
+
+                <dt tabindex="0" aria-expanded="false">Q2. 신차 구매 시 비공식 할인 혜택이나 현금지원은 어떻게 받아야 하나요?</dt>
+                <dd>현대자동차 본사에서 공식적으로 제공하는 재고 차량 할인 프로모션 외에, 카마스터가 지급하는 비공식 사은품이나 현금 리베이트가 존재합니다. 신용카드로 잔금을 결제하는 카드 오토캐시백 전문 성지 사이트나 결제 대행 좌표를 수소문하여 진행하면 가장 합리적인 최저가 혜택 조합을 만들어낼 수 있습니다.</dd>
+
+                <dt tabindex="0" aria-expanded="false">Q3. 그랜저 GN7 장기 렌트와 리스 중 어떤 방식이 제 상황에 더 유리할까요?</dt>
+                <dd>초기 목돈 지출 없이 비용 처리가 필요한 개인사업자나 법인 오너라면 장기 렌트가 매우 유리한 구조를 가집니다. 렌트 계약에는 자동차 보험료와 세금이 월 납입 요금제 항목에 일괄 산정되어 있어 회계 관리가 극히 단순해집니다. 반면 일반 개인 번호판 유지를 원하고 주행거리가 짧아 보험 요율이 낮다면 리스가 더 나은 대안이 될 수 있으므로 전문 업체의 맞춤형 견적을 받아 선택하는 것을 권장합니다.</dd>
+
+                <dt tabindex="0" aria-expanded="false">Q4. 출고 후 사후 관리나 수리는 어디서 진행하며 고객센터 품질은 어떤가요?</dt>
+                <dd>현대자동차는 전국에 분포된 공식 서비스 네트워크인 블루핸즈를 통해 신차 보증 기간 동안 무상 정비 서비스를 성실하게 제공합니다. 차량 자체 결함이나 리콜 이슈 발생 시 현대자동차 고객센터에 유선 통화나 카카오톡 플러스친구 등을 이용해 쉽고 빠르게 예약을 진행할 수 있으며 타 브랜드 대비 정비 인프라 편의성은 최상위 수준입니다.</dd>
+            </dl>
+        </section>
+
+        <section id="상담신청">
+            <h2>실시간 맞춤형 1:1 맞춤 견적 문의 및 프로모션 신청</h2>
+            <p>원하는 엔진 유형과 옵션 조합에 따른 정확한 견적이 궁금하신가요? 아래 양식에 간단한 정보를 기입해 주시면, 2026년 기준 전국 최저 금리 및 최대 할인 조건을 적용하여 일체의 수수료 없이 맞춤형 자동차 다이렉트 <strong>견적</strong> 및 실시간 <strong>상담</strong>을 신속하게 무상 제공해 드립니다.</p>
+
+            <div class="input-form">
+                <form action="#" method="post" onsubmit="alert('상담 신청이 접수되었습니다. 담당 카마스터가 곧 연락드리겠습니다.'); return false;">
+                    <label for="name">성함</label>
+                    <input type="text" id="name" name="name" placeholder="고객님의 존함을 입력해 주십시오" required>
+
+                    <label for="phone">휴대전화 번호</label>
+                    <input type="tel" id="phone" name="phone" placeholder="010-0000-0000 형태로 작성해 주십시오" required>
+
+                    <label for="engine">희망 엔진 라인업 선택</label>
+                    <select id="engine" name="engine">
+                        <option value="hybrid">1.6 터보 하이브리드 (가장 추천)</option>
+                        <option value="2.5gas">2.5 가솔린 (가성비 중심)</option>
+                        <option value="3.5gas">3.5 가솔린 (고성능 지향)</option>
+                        <option value="3.5lpi">3.5 LPi (장거리 위주)</option>
+                    </select>
+
+                    <label for="trim">선호하는 트림 등급</label>
+                    <select id="trim" name="trim">
+                        <option value="exclusive">익스클루시브 (패밀리 베스트셀러)</option>
+                        <option value="premium">프리미엄 (가성비 최저가)</option>
+                        <option value="calligraphy">캘리그래피 (최고급 풀사양)</option>
+                        <option value="blackink">블랙잉크 (스페셜 에디션)</option>
+                    </select>
+
+                    <label for="message">요청 사항 및 문의 내용</label>
+                    <textarea id="message" name="message" rows="4" placeholder="예: 무보증 장기렌트 월 비용 확인 요청, 오토캐시백 지원금 최대 비율 문의, 신차 출고 사은품 혜택 확인 등"></textarea>
+
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="privacy" name="privacy" required>
+                        <label for="privacy" style="display:inline; font-weight: 500;">개인정보 수집 및 상담 전송에 동의합니다. (필수)</label>
+                    </div>
+
+                    <button type="submit" class="cta-button">무료 실시간 견적 받아보기</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="신뢰성">
+            <h2>공식 참조 자료 및 신뢰할 수 있는 외부 정보 채널</h2>
+            <p>더 올 뉴 그랜저gn7 구매와 관련하여 왜곡되지 않은 양질의 팩트 체크를 위해 아래의 신뢰도 높은 국가 행정 정보망 및 공식 지식 데이터베이스 링크를 제공합니다. 투명한 시세를 탐색하는 데 유용한 공인 리소스를 직접 체크해 보세요.</p>
+            <div class="reference-section">
+                <a href="https://directscheckt.koreahankang.com" target="_blank" rel="noopener">더 올 뉴 그랜저 GN7 연식변경 가격 모델별 견적 데이터베이스</a>
+                <a href="https://namu.wiki/w/현대_그랜저/7세대" target="_blank" rel="noopener">나무위키 - 현대 그랜저 7세대 개발 배경 및 기술 제원 정보</a>
+                <a href="https://www.hyundai.com" target="_blank" rel="noopener">현대자동차 공식 홈페이지 - 더 올 뉴 그랜저 카탈로그 및 정품 사양표 다운로드</a>
+            </div>
+        </section>
     </main>
-  </body>
-</html>
+
+  
+    <script>
+        document.querySelectorAll('dl dt').forEach((dt) => {
+            dt.addEventListener('click', () => {
+                const isActive = dt.classList.contains('active');
+                
+                document.querySelectorAll('dl dt').forEach((item) => {
+                    item.classList.remove('active');
+                });
+                
+                if (!isActive) {
+                    dt.classList.add('active');
+                }
+                
+                let expanded = dt.getAttribute('aria-expanded') === 'true';
+                dt.setAttribute('aria-expanded', !expanded);
+            });
+            
+            dt.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    dt.click();
+                }
+            });
+        });
+    </script>
+  
